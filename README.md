@@ -6,7 +6,9 @@
 
 This is the official repository of [OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models](https://arxiv.org/abs/2402.10670).
 
-![](img/teaser.png)
+<div align=center>
+<img src="./img/teaser.png" width=80%>
+</div>
 
 ## Setup
 
@@ -31,7 +33,7 @@ data/
 
 ### Checkpoints
 
-Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything) to download `groundingdino_swint_ogc.pth` and `sam_vit_h_4b8939.pth` and put them into `Grounded-SAM/`.
+Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything) to download `groundingdino_swint_ogc.pth` and `sam_vit_h_4b8939.pth` and put them into `Grounded_SAM/`.
 
 ### Dependencies
 
