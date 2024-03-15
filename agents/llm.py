@@ -99,6 +99,3 @@ class LLM():
                 continue
             new_c.append(ob)
         return new_c
-    
-    def gpt4v_tagging(self, img):
-        pass

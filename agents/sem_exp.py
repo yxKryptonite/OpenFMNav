@@ -46,8 +46,6 @@ class Sem_Exp_Env_Agent(ObjectGoal_Env21):
 
         self.device = args.device
         
-        # self.red_sem_pred.to(self.device)
-        
         text_threshold = args.text_threshold
         use_ram = args.tag_freq > 0
         while True:
@@ -121,7 +119,6 @@ class Sem_Exp_Env_Agent(ObjectGoal_Env21):
         obs = self._preprocess_obs(obs)
 
         self.obs_shape = obs.shape
-        # print('==========> obs.shape:',obs.shape)
 
         # Episode initializations
         map_shape = (args.map_size_cm // args.map_resolution,
@@ -139,7 +136,6 @@ class Sem_Exp_Env_Agent(ObjectGoal_Env21):
         self.eve_angle_old = 0
 
         info['eve_angle'] = self.eve_angle
-
 
         if args.visualize or args.print_images:
             self.vis_image = vu.init_vis_image(self.goal_name, self.legend)
@@ -186,10 +182,6 @@ class Sem_Exp_Env_Agent(ObjectGoal_Env21):
 
         action = self._plan(planner_inputs)
 
-        # c_time = time.time()
-        # ss_time = c_time - s_time
-        # print('plan map: %.3f秒'%ss_time) 0.19
-
         if self.collision_n > 20 or self.replan_count > 26:
             self.info['clear_flag'] = 1
             self.collision_n = 0
@@ -222,13 +214,6 @@ class Sem_Exp_Env_Agent(ObjectGoal_Env21):
             self.obs = obs
             self.info = info
             info['eve_angle'] = self.eve_angle
-
-
-            # e_time = time.time()
-            # ss_time = e_time - c_time
-            # print('act map: %.3f秒'%ss_time) 0.23
-
-            # info['g_reward'] += rew
 
             return obs, self.fail_case, done, info
 

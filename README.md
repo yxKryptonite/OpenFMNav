@@ -68,7 +68,7 @@ Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment
 
 ### OpenAI API keys
 
-You will need an OpenAI API key to use this repo. Please `vim apikey.txt` and paste your API key in the file.
+You will need an OpenAI API key to use this repo. Please `touch apikey.txt` and paste your API key in the file.
 
 ## Running
 

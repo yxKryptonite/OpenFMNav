@@ -168,8 +168,3 @@ color_palette = [
     0.66, 0.7657999999999998, 0.9661999999999998,
 ]
 
-# color1 = (0, 1, 0)
-# color2 = (1, 0, 0)
-
-# steps = len(object_category)
-# color_palette = color_palette + generate_gradient(color1, color2, steps)
