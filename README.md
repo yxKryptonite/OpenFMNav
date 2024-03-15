@@ -39,32 +39,32 @@ Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment
 
 1. Python & PyTorch
 
-This code is tested on Python 3.9.16 on Ubuntu 20.04, with PyTorch 1.11.0+cu113.
+    This code is tested on Python 3.9.16 on Ubuntu 20.04, with PyTorch 1.11.0+cu113.
 
 2. Habitat-Sim & Habitat-Lab
 
-```
-# Habitat-Sim
-git clone https://github.com/facebookresearch/habitat-sim.git
-cd habitat-sim; git checkout tags/challenge-2022; 
-pip install -r requirements.txt; 
-python setup.py install --headless
+    ```
+    # Habitat-Sim
+    git clone https://github.com/facebookresearch/habitat-sim.git
+    cd habitat-sim; git checkout tags/challenge-2022; 
+    pip install -r requirements.txt; 
+    python setup.py install --headless
 
-# Habitat-Lab
-git clone https://github.com/facebookresearch/habitat-lab.git
-cd habitat-lab; git checkout tags/challenge-2022; 
-pip install -e .
-```
+    # Habitat-Lab
+    git clone https://github.com/facebookresearch/habitat-lab.git
+    cd habitat-lab; git checkout tags/challenge-2022; 
+    pip install -e .
+    ```
 
 3. Grounded-SAM
 
-Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything) to install the dependencies.
+    Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything) to install the dependencies.
 
 4. Others
 
-```
-pip install -r requirements.txt
-```
+    ```
+    pip install -r requirements.txt
+    ```
 
 ### OpenAI API keys
 

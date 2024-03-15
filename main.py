@@ -37,9 +37,8 @@ from vl_prompt.p_manager import object_query_constructor
 os.environ["OMP_NUM_THREADS"] = "1"
 
 def find_big_connect(image):
-    img_label, num = measure.label(image, connectivity=2, return_num=True)#输出二值图像中所有的连通域
-    props = measure.regionprops(img_label)#输出连通域的属性，包括面积等
-    # print("img_label.shape: ", img_label.shape) # 480*480
+    img_label, num = measure.label(image, connectivity=2, return_num=True)
+    props = measure.regionprops(img_label)
     resMatrix = np.zeros(img_label.shape)
     tmp_area = 0
     for i in range(0, len(props)):
@@ -59,6 +58,8 @@ def get_status(fail_case, fail_case_old):
     
 
 def main(args):
+    assert args.num_processes == 1, "Only single process supported for now"
+    
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
 
@@ -110,11 +111,6 @@ def main(args):
     finished = np.zeros((args.num_processes))
     wait_env = np.zeros((args.num_processes))
 
-    # g_process_rewards = 0
-    # g_total_rewards = np.ones((num_scenes))
-    # g_sum_rewards = 1
-    # g_sum_global = 1
-
     stair_flag = np.zeros((num_scenes))
     clear_flag = np.zeros((num_scenes))
 
@@ -156,7 +152,7 @@ def main(args):
     # 2. Exploread Area
     # 3. Current Agent Location
     # 4. Past Agent Locations
-    # 5,6,7,.. : Semantic Categories
+    # 5,6,7,.. : Semantic Categories, versatile
     nc = len(envs.venv.get_metrics()[0]['object_category']) + 4  # num channels
 
     # Calculating full and local map sizes
@@ -201,9 +197,6 @@ def main(args):
     # 4-7 store local map boundaries
     planner_pose_inputs = np.zeros((num_scenes, 7))
 
-    # frontier_score_list = []
-    # for _ in range(args.num_processes):
-    #     frontier_score_list.append(deque(maxlen=10))
     reply_list = []
     for _ in range(args.num_processes):
         reply_list.append(None)
@@ -338,18 +331,14 @@ def main(args):
         # goal_map = 1 - goal_map
         planner.set_multi_goal(goal_pose_map)
 
-        img_label, num = measure.label(image, connectivity=2, return_num=True)#输出二值图像中所有的连通域
-        props = measure.regionprops(img_label)#输出连通域的属性，包括面积等
-        # print("img_label.shape: ", img_label.shape) # 480*480
-        # print("img_label.dtype: ", img_label.dtype) # 480*480
+        img_label, num = measure.label(image, connectivity=2, return_num=True)
+        props = measure.regionprops(img_label)
         Goal_edge = np.zeros((img_label.shape[0], img_label.shape[1]))
         Goal_point = np.zeros(img_label.shape)
         Goal_score = []
 
         dict_cost = {}
         for i in range(1, len(props)):
-            # print("area: ", props[i].area)
-            # dist = pu.get_l2_distance(props[i].centroid[0], pose[0], props[i].centroid[1], pose[1])
             dist = planner.fmm_dist[int(props[i].centroid[0]), int(props[i].centroid[1])] * 5
             dist_s = 8 if dist < 300 else 0
             
