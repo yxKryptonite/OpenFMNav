@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models">
+  <meta name="keywords" content="Robotic Manipulation, Language Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenFMNav</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <script>
+
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+      console.log("interactive", task)
+
+      // if task does not contain the string "towel"
+      if (task.indexOf("towel") == -1) {
+        var video = document.getElementById("interactive-video");
+        video.src = "media/videos/" + 
+                    task + 
+                    ".mp4"
+        video.play();
+
+        var html = document.getElementById("interactive-html-1");
+        html.src = "media/interactive/" + 
+                    task + 
+                    ".html"
+
+        // hide the second iframe container
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "none";
+      } else {
+        var video = document.getElementById("interactive-video");
+        video.src = "media/videos/hang-towel.mp4"
+        video.play();
+
+        var html1 = document.getElementById("interactive-html-1");
+        html1.src = "media/interactive/hang-towel-1.html"
+
+        // show and set the source for the second iframe
+        var html2 = document.getElementById("interactive-html-2");
+        html2.src = "media/interactive/hang-towel-2.html"
+
+        // show the second iframe container
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "block";
+      }
+    }
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateInteractive();">
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank" href="https://2024.naacl.org/">NAACL 2024 Findings</a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://yxkryptonite.github.io/">Yuxuan Kuang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://www3.nd.edu/~hlin1/">Hai Lin</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="http://www.meng-jiang.com/">Meng Jiang</a><sup>2</sup>
+            </span>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Peking University,</span>
+            <span class="author-block"><sup>2</sup>University of Notre Dame</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" href="https://arxiv.org/abs/2402.10670"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://github.com/yxKryptonite/OpenFMNav"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <img src="assets/img/teaser-1.png" width="50%" class="teaser-image" />
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+          Leveraging foundation models, our proposed OpenFMNav can follow free-form natural language instructions with open-set objects and achieve effective zero-shot object navigation.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Object navigation (ObjectNav) requires an agent to navigate through unseen environments to find queried objects. Many previous methods attempted to solve this task by relying on supervised or reinforcement learning, where they are trained on limited household datasets with close-set objects. However, two key challenges are unsolved: understanding free-form natural language instructions that demand open-set objects, and generalizing to new environments in a zero-shot manner. Aiming to solve the two challenges, in this paper, we propose <b>OpenFMNav</b>, an <b>Open</b>-set <b>F</b>oundation <b>M</b>odel based framework for zero-shot object <b>Nav</b>igation. We first unleash the reasoning abilities of large language models (LLMs) to extract proposed objects from natural language instructions that meet the user's demand. We then leverage the generalizability of large vision language models (VLMs) to actively discover and detect candidate objects from the scene, building a <i>Versatile Semantic Score Map (VSSM)</i>. Then, by conducting common sense reasoning on <i>VSSM</i>, our method can perform effective language-guided exploration and exploitation of the scene and finally reach the goal. By leveraging the reasoning and generalizing abilities of foundation models, our method can understand free-form human instructions and perform effective open-set zero-shot navigation in diverse environments. Extensive experiments on the HM3D ObjectNav benchmark show that our method surpasses all the strong baselines on all metrics, proving our method's effectiveness. Furthermore, we perform real robot demonstrations to validate our method's open-set-ness and generalizability to real-world environments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3">Method</h2>
+    <br>
+    <div align="center">
+      <img src="assets/img/pipeline-1.png" width="70%" class="pipeline-image" />
+      <img src="assets/img/algo.png" width="23%" class="pipeline-image" />
+      <div class="content has-text-justified">
+        The framework of our proposed OpenFMNav. Based on the natural language instruction and observations, we utilize foundation models to interpret human instructions and construct a <i>Versatile Semantic Score Map (VSSM)</i>, on which we perform common sense reasoning and scoring to conduct language-guided frontier-based exploration.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3">Results</h2>
+    <br>
+    <div align="center">
+      <img src="assets/img/result.png" width="80%" class="pipeline-image" /><br><br>
+      <img src="assets/img/ablation.png" width="40%" class="pipeline-image" />
+      <img src="assets/img/chart-1.png" width="40%" class="pipeline-image" />
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <h2 class="title is-3">Demo</h2><br>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/video/bed.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/video/couch.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+           <video poster="" autoplay muted loop height="100%">
+             <source src="assets/video/chair.mp4"
+                     type="video/mp4">
+           </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/video/plant.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/video/tv.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="assets/video/toilet.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div align="center">
+    Example trajectories in HM3D.
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3">Real World Demonstrations</h2>
+    <br>
+    <div align="center">
+      <img src="assets/img/threecase-1.png" width="100%" class="demo-image" />
+      <div class="content has-text-justified">
+        Qualitative studies in the real world. Text marked in <font color="red">red</font> indicates objects that potentially satisfy the instruction. Results show that our method is robust to natural language instructions, including distractors, open-set objects and free-form demands.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{kuang2024openfmnav,
+    title={OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models}, 
+    author={Yuxuan Kuang and Hai Lin and Meng Jiang},
+    year={2024},
+    eprint={2402.10670},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
