@@ -8,63 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OpenFMNav</title>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-FV4ZJ9PVSV');
-  </script>
-
-  <script>
-
-    function updateInteractive() {
-      var task = document.getElementById("interative-menu").value;
-
-      console.log("interactive", task)
-
-      // if task does not contain the string "towel"
-      if (task.indexOf("towel") == -1) {
-        var video = document.getElementById("interactive-video");
-        video.src = "media/videos/" + 
-                    task + 
-                    ".mp4"
-        video.play();
-
-        var html = document.getElementById("interactive-html-1");
-        html.src = "media/interactive/" + 
-                    task + 
-                    ".html"
-
-        // hide the second iframe container
-        var iframeContainer2 = document.getElementById("second-iframe-container");
-        iframeContainer2.style.display = "none";
-      } else {
-        var video = document.getElementById("interactive-video");
-        video.src = "media/videos/hang-towel.mp4"
-        video.play();
-
-        var html1 = document.getElementById("interactive-html-1");
-        html1.src = "media/interactive/hang-towel-1.html"
-
-        // show and set the source for the second iframe
-        var html2 = document.getElementById("interactive-html-2");
-        html2.src = "media/interactive/hang-towel-2.html"
-
-        // show the second iframe container
-        var iframeContainer2 = document.getElementById("second-iframe-container");
-        iframeContainer2.style.display = "block";
-      }
-    }
-
-
-
-  </script>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
-
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
@@ -79,7 +24,6 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
-<body onload="updateInteractive();">
 
 <section class="hero">
   <div class="hero-body">
@@ -286,7 +230,7 @@
       <div class="column">
         <div class="content has-text-centered">
           <p>
-            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>. 
+            Website template borrowed from <a href="https://voxposer.github.io/">VoxPoser</a>, <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>. 
           </p>
         </div>
       </div>
