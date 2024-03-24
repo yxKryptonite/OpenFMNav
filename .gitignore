@@ -1,7 +1,6 @@
 *.pth
 __pycache__/
 tmp/
-*.mp4
 apikey.txt
 current*.png
 current*.jpg
