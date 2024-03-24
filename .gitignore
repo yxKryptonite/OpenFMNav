@@ -1,0 +1,11 @@
+*.pth
+__pycache__/
+tmp/
+*.mp4
+apikey.txt
+current*.png
+current*.jpg
+output_sam/
+object_category.txt
+data/
+nav_res/
