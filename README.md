@@ -101,10 +101,10 @@ This repo is heavily based on [L3MVN](https://github.com/ybgdgh/L3MVN). We thank
 If you find this work helpful, please consider citing:
 
 ```
-@inproceedings{kuang2024openfmnav,
-    title={Open{FMN}av: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models},
-    author={Yuxuan Kuang and Hai Lin and Meng Jiang},
-    booktitle={2024 Annual Conference of the North American Chapter of the Association for Computational Linguistics},
-    year={2024}
+@article{kuang2024openfmnav,
+  title={OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models},
+  author={Kuang, Yuxuan and Lin, Hai and Jiang, Meng},
+  journal={arXiv preprint arXiv:2402.10670},
+  year={2024}
 }
 ```
