@@ -271,7 +271,7 @@ class ObjectGoal_Env21(habitat.RLEnv):
                         (See https://arxiv.org/pdf/2007.00643.pdf)
         """
         dist = self._env.get_metrics()['distance_to_goal']
-        if dist < 1.0:
+        if dist < 0.1:
             success = 1
         else:
             success = 0
