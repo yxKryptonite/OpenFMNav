@@ -1,3 +1,5 @@
+
+
 <h2 align="center">
   <b>OpenFMNav: Towards Open-Set Zero-Shot Object Navigation via Vision-Language Foundation Models</b>
 
@@ -68,7 +70,7 @@ Please checkout [Grounded-SAM](https://github.com/IDEA-Research/Grounded-Segment
 
 ### OpenAI API keys
 
-You will need an OpenAI API key to use this repo. Please `touch apikey.txt` and paste your API key in the file.
+You will need an OpenAI API key to use this repo. Please `touch apikey.txt` and paste your OpenAI API key on the first line (additional keys can be provided, separated by newlines).
 
 ## Running
 
